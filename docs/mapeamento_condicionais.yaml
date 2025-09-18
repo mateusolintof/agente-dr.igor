@@ -1,0 +1,293 @@
+version: 1.0
+context:
+  objective: "Mapeamento das regras de decisão usadas pelos workflows do n8n para triagem, follow-up e fallbacks."
+  primary_pipeline_statuses:
+    - novo_lead
+    - triagem
+    - consultando_disponibilidade
+    - opcoes_enviadas
+    - aguardando_confirmacao
+    - atendimento_humano
+    - agendado
+    - follow_up
+    - nao_interessado
+    - paciente
+  critical_custom_fields:
+    - MAIN_OBJECTIVE
+    - PREFERRED_SLOT
+    - LAST_SUGGESTED_SLOTS
+    - FOLLOWUP_ATTEMPTS
+    - LAST_FOLLOWUP
+    - DETECTED_INTENT
+    - PHONE_VALIDATED
+fallback_tags:
+  handoff: handoff_humano
+  optout_keywords: &optout_keywords
+    - parar
+    - cancelar
+    - não quero
+    - nao quero
+    - sem interesse
+    - stop
+
+triage_rules:
+  - id: saudacao_inicial
+    trigger: primeira mensagem sem nome reconhecido
+    action: "Enviar saudação formal e solicitar nome."
+    kommo_updates:
+      status: triagem
+      notes:
+        - "Triagem iniciada"
+    remarks: "Sempre apresentar a assistente Milena."
+
+  - id: nome_fornecido
+    trigger: paciente informa nome
+    action: "Confirmar e continuar para coleta do objetivo."
+    kommo_updates:
+      lead_name: atualizar
+    remarks: "Tratar como senhor(a) + nome."
+
+  - id: consentimento_negado
+    trigger: negativa explícita ao termo LGPD
+    action: "Encerrar conversa com agradecimento."
+    kommo_updates:
+      status: nao_interessado
+      followup_attempts: 0
+      notes:
+        - "Consentimento negado"
+    remarks: "Bloquear follow-ups automáticos."
+
+  - id: consentimento_aceito
+    trigger: aceite explícito ao termo LGPD
+    action: "Prosseguir com coleta de objetivo e dados clínicos."
+    kommo_updates:
+      notes:
+        - "Consentimento registrado"
+    remarks: "Guardar evidência em log separado."
+
+  - id: emergencia_detectada
+    trigger: termos como "dor no peito", "socorro", "suicídio"
+    action: "Orientar atendimento médico imediato e acionar humano."
+    kommo_updates:
+      status: atendimento_humano
+      tasks:
+        - tipo: urgent
+          descricao: "Emergência reportada"
+    remarks: "Encerrar fluxo automatizado."
+
+  - id: objetivo_emagrecimento
+    trigger: menção a emagrecer/perder peso/dieta
+    action: "Registrar objetivo e seguir roteiro específico."
+    kommo_updates:
+      custom_fields:
+        MAIN_OBJECTIVE: Emagrecimento
+      tags:
+        - emagrecimento
+    remarks: "Reforçar abordagem individualizada."
+
+  - id: objetivo_massa
+    trigger: menção a ganho de massa ou hipertrofia
+    action: "Roteiro voltado para performance."
+    kommo_updates:
+      custom_fields:
+        MAIN_OBJECTIVE: "Ganho de Massa Muscular"
+      tags:
+        - massa_muscular
+
+  - id: objetivo_saude_hormonal
+    trigger: termos sobre hormônios, metabolismo
+    action: "Explicar foco em saúde hormonal."
+    kommo_updates:
+      custom_fields:
+        MAIN_OBJECTIVE: "Saúde Hormonal"
+      tags:
+        - saude_hormonal
+
+  - id: objetivo_performance
+    trigger: palavras ligadas a energia/performance/atleta
+    action: "Destacar protocolos de performance."
+    kommo_updates:
+      custom_fields:
+        MAIN_OBJECTIVE: "Performance/Energia"
+      tags:
+        - performance
+
+  - id: objetivo_outros
+    trigger: objetivos fora das categorias padrão
+    action: "Investigar detalhes e registrar em nota."
+    kommo_updates:
+      custom_fields:
+        MAIN_OBJECTIVE: Outros
+
+  - id: duvida_preco
+    trigger: perguntas sobre preço/valor
+    action: "Responder com política (R$700, duração, inclusão de bioimpedância e retorno)."
+    kommo_updates:
+      custom_fields:
+        DETECTED_INTENT: pricing
+
+  - id: interesse_expresso
+    trigger: frases como "tenho interesse", "quero consultar"
+    action: "Confirmar interesse e coletar idade/histórico."
+    kommo_updates:
+      notes:
+        - "Lead demonstrou interesse real"
+
+  - id: pedido_agenda
+    trigger: menção clara a datas/horários ou pergunta sobre disponibilidade
+    action: "Registrar preferência e consultar MEDX."
+    kommo_updates:
+      status: consultando_disponibilidade
+      custom_fields:
+        PREFERRED_SLOT: "valor detectado na mensagem"
+    remarks: "Se MEDX indisponível, seguir fallback correspondente."
+
+  - id: sem_disponibilidade
+    trigger: MEDX retorna 0 slots
+    action: "Oferecer alternativas (outros dias, lista de espera, teleatendimento)."
+    kommo_updates:
+      status: opcoes_enviadas
+      custom_fields:
+        LAST_SUGGESTED_SLOTS: "sem disponibilidade"
+
+  - id: opcoes_enviadas
+    trigger: MEDX retorna lista de slots
+    action: "Enviar até três opções claras ao paciente."
+    kommo_updates:
+      status: opcoes_enviadas
+      custom_fields:
+        LAST_SUGGESTED_SLOTS: "lista enviada"
+
+  - id: confirmacao_horario
+    trigger: paciente escolhe uma das opções ou pede reserva
+    action: "Confirmar pré-reserva e acionar equipe humana."
+    kommo_updates:
+      status: atendimento_humano
+      tags:
+        - handoff_humano
+      tasks:
+        - tipo: call
+          descricao: "Confirmar horário no MEDX"
+    remarks: "Informar retorno em até 2 horas úteis."
+
+  - id: duvida_medica
+    trigger: perguntas sobre diagnóstico ou medicação
+    action: "Direcionar para consulta e escalar humano."
+    kommo_updates:
+      status: atendimento_humano
+      tasks:
+        - tipo: followup
+          descricao: "Responder dúvida clínica"
+
+  - id: desistencia
+    trigger: paciente pede cancelamento ou opt-out
+    action: "Confirmar cancelamento e agradecer."
+    kommo_updates:
+      status: nao_interessado
+      tags_remove:
+        - handoff_humano
+      custom_fields_clear:
+        - PREFERRED_SLOT
+        - LAST_SUGGESTED_SLOTS
+
+followup_rules:
+  cron:
+    schedule: "Diariamente às 09:00 (America/Sao_Paulo)"
+    statuses_selecionados:
+      - opcoes_enviadas
+      - aguardando_confirmacao
+      - follow_up
+    horario_comercial:
+      dias: [1, 2, 3, 4, 5]
+      intervalo_horas: "09h-18h"
+
+  tentativas:
+    - tentativa: 1
+      intervalo_horas: ">= 24"
+      mensagem: template_24h
+      resultado_possivel:
+        resposta: "Mover lead para atendimento adequado (reanalisar MEDX ou humano)."
+        silencio: "Manter status atual e aguardar próxima tentativa."
+    - tentativa: 2
+      intervalo_horas: ">= 48"
+      mensagem: template_48h
+      resultado_possivel:
+        resposta: "Iniciar nova consulta MEDX se necessário."
+        silencio: "Preparar tentativa final."
+    - tentativa: 3
+      intervalo_horas: ">= 168"
+      mensagem: template_7d
+      resultado_possivel:
+        resposta: "Escalar para equipe humana."
+        silencio: "Mover lead para follow_up e aplicar pausa."
+
+  pausa:
+    condicao: FOLLOWUP_ATTEMPTS >= 3
+    acao:
+      status: nao_interessado
+      custom_fields:
+        PAUSE_UNTIL: "data atual + 30 dias"
+
+  optout:
+    palavras_chave: *optout_keywords
+    acao:
+      status: nao_interessado
+      notas:
+        - "Opt-out confirmado"
+      followup_attempts: 0
+
+fallbacks:
+  - id: medx_indisponivel
+    detection: "Erro HTTP ou timeout na consulta MEDX"
+    bot_action: "Informar manutenção, coletar preferência e criar tarefa humana."
+    kommo_updates:
+      status: triagem
+      tags:
+        - handoff_humano
+      tasks:
+        - tipo: followup
+          descricao: "Verificar agenda manualmente"
+
+  - id: openai_indisponivel
+    detection: "Chamada OpenAI falhou (rate limit, timeout ou erro 5xx)."
+    bot_action: "Enviar mensagem padrão de indisponibilidade e logar ocorrência."
+    kommo_updates:
+      notes:
+        - "OpenAI indisponível"
+    alerts:
+      - canal: suporte
+        mensagem: "Falha OpenAI no fluxo"
+
+  - id: linguagem_agressiva
+    detection: "Palavreado ofensivo, reclamação grave ou ameaça."
+    bot_action: "Pedir desculpas, encerrar conversa automática e escalar humano."
+    kommo_updates:
+      status: atendimento_humano
+      tasks:
+        - tipo: followup
+          descricao: "Contato humanizado necessário"
+
+  - id: emergencia_medica
+    detection: "Relato de urgência médica ou risco à vida."
+    bot_action: "Reforçar procura imediata de emergência, registrar e escalonar."
+    kommo_updates:
+      status: atendimento_humano
+      tasks:
+        - tipo: urgent
+          descricao: "Atendimento médico prioritário"
+
+logging:
+  fields_registrados:
+    - leadId
+    - intent
+    - requestedSlot
+    - availableSlots
+    - readyForHuman
+    - timestamp
+  canais_alerta:
+    - nome: dr-igor-operacao
+      plataforma: slack/telegram
+      eventos:
+        - emergencia_detectada
+        - falha_medx
+        - optout_massivo

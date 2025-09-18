@@ -1,0 +1,34 @@
+# Acessos Necessários Para a Construção
+
+## KOMMO CRM
+
+Usuário: Institutoaguiarneri@gmail.com
+Senha: aguiarneri
+
+**Chaves de integrações criadas -> se necessário (webhook -> https://flowhook.convert-saude.space/webhook/kommo-chat)**
+
+- Client ID: 90220d75-5a0b-4bb0-8b19-16e7036218c8
+- Client Secret:cnxOhptsyIBNDEsjQIKhmkfiRsMEdYX1TXQdRl6x4FthHxffucI6FWskdRf7QyCe
+- TOKEN_LONGA_DURAÇÃO:
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJiMTVkOTFlZWI3ODc3NWEwNDRmNjRjZDdiYmM2YWE2NTA0OTk3ZWU0M2ZlOTVhZGU3OTc5ZGQ0YzU4ZDUxNjY1MjM0OWY1ZTg5MjM1NmQzIn0.eyJhdWQiOiI5MDIyMGQ3NS01YTBiLTRiYjAtOGIxOS0xNmU3MDM2MjE4YzgiLCJqdGkiOiJiYjE1ZDkxZWViNzg3NzVhMDQ0ZjY0Y2Q3YmJjNmFhNjUwNDk5N2VlNDNmZTk1YWRlNzk3OWRkNGM1OGQ1MTY2NTIzNDlmNWU4OTIzNTZkMyIsImlhdCI6MTc1NzI3NzA2MywibmJmIjoxNzU3Mjc3MDYzLCJleHAiOjE4MzAyMTEyMDAsInN1YiI6IjEyNjk0NTExIiwiZ3JhbnRfdHlwZSI6IiIsImFjY291bnRfaWQiOjM0MTUzMTIzLCJiYXNlX2RvbWFpbiI6ImtvbW1vLmNvbSIsInZlcnNpb24iOjIsInNjb3BlcyI6WyJjcm0iLCJmaWxlcyIsImZpbGVzX2RlbGV0ZSIsIm5vdGlmaWNhdGlvbnMiLCJwdXNoX25vdGlmaWNhdGlvbnMiXSwidXNlcl9mbGFncyI6MCwiaGFzaF91dWlkIjoiNzc3ZTRjOTktNzFhMi00MTVlLWJmY2MtNmRjZTFmZjZmZjU1IiwiYXBpX2RvbWFpbiI6ImFwaS1jLmtvbW1vLmNvbSJ9.kF7xYsg9rHwsMOSKm8cmbkUtBiwBAg2GTFJ2qtJQfW1c3edQs8TM77K-AtH8TJisAkbxeAZAvgaQY9Ula7Fj8_exCZ0GQgod6XmBP_jG-rY3q-k9vq4yAylw90a8hxCGkVBuXHQkoIeEujxN9Z9jZCDJosZkoY_YdsKrUd87UYempxZBxUz-OLmrm4jrqSD7eEBthLN8kvSB-xH2jGsMZPDjTD0DQbsGT2aD-80P2CJ3clfTgj0uVuWwc6A19cuizgT9AbPoGumidKT-VyddMXLM7tQj4J9CaKer3HMJNx1RzxaqLgdbgZnzCnQHMgr_QHNODCpDnpyPYxl9lftJow
+
+## CONVERT.SAUDE
+
+### HOSTINGER
+
+e-mail: convert.saude@gmail.com
+senha: Metaconvert@50k
+
+### EASYPANEL
+
+e-mail: convert.saude@gmail.com
+senha: Metaconvert@50k
+
+### N8N
+
+e-mail: convert.saude@gmail.com
+senha: Metaconvert@50k
+
+## GITHUB REPO
+
+https://github.com/mateusolintof/agente-dr.igor.git
