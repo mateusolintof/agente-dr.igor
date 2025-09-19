@@ -154,10 +154,3 @@ graph TD
 - Acesso estável ao MEDX e OpenAI.
 - Plano Kommo compatível com webhooks e custom fields.
 
-### Custos Estimados (Mensais)
-- Kommo: R$ 300-500
-- n8n: R$ 200-400
-- OpenAI: R$ 150-300
-- Licença/integração MEDX: conforme contrato
-- Desenvolvimento/Manutenção: R$ 3.000-5.000
-- **Total estimado**: R$ 3.650-6.500/mês

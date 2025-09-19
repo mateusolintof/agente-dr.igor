@@ -10,7 +10,7 @@
   - Atualizar status do lead conforme resultado.
 
 ## 2. Indisponibilidade do OpenAI
-- **Sintoma:** Nodo OpenAI retorna erro ou tempo limite excedido.
+- **Sintoma:** Node OpenAI retorna erro ou tempo limite excedido.
 - **Resposta imediata:**
   - Fluxo n8n aciona mensagem padrão salvaguarda: "Sistema indisponível no momento; vamos retornar em instantes".
   - Registra erro com timestamp e payload para análise.
@@ -34,18 +34,13 @@
 
 ## 5. Conteúdo fora do protocolo / Assuntos clínicos
 - **Sintoma:** Paciente pede orientação médica, receita ou relata emergência.
-- **Resposta imediata:**
-  - Agente IA responde: "Para garantir sua segurança, o Dr. Igor precisa avaliá-lo pessoalmente. Estou encaminhando seu caso agora para nossa equipe." e dispara tarefa urgente.
-- **Ação da equipe:**
-  - Entrar em contato prioritário, registrar orientações e, se for emergência, direcionar para pronto atendimento.
+- **Resposta:**
+  - Agente IA responde: "Para sua segurança, é necessário realizar uma consulta com o Dr. Igor antes de qualquer orientação clínica ou prescrição. Assim, o doutor poderá avaliar sua situação e indicar o melhor protocolo ou medicamento, se for o caso."
 
 ## 6. Solicitação de Cancelamento ou Opt-out
 - **Sintoma:** Paciente pede para parar contatos ou cancelar consulta.
 - **Resposta imediata:**
-  - Agente confirma cancelamento, agradece e muda status para "Não Interessado".
-  - Remove agendamentos no MEDX, se houver.
-- **Ação da equipe:**
-  - Validar se há sinal pago e seguir política de reembolso/remarcação.
+  - Agente confirma cancelamento, agradece e muda status para "Perdido".
 
 ## 7. Falha de Sincronização entre Kommo e MEDX
 - **Sintoma:** Horário aparece disponível no MEDX, mas já reservado na clínica.

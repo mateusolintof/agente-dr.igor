@@ -32,13 +32,13 @@ fallback_tags:
 
 triage_rules:
   - id: saudacao_inicial
-    trigger: primeira mensagem sem nome reconhecido
+    trigger: primeira mensagem
     action: "Enviar saudação formal e solicitar nome."
     kommo_updates:
       status: triagem
       notes:
         - "Triagem iniciada"
-    remarks: "Sempre apresentar a assistente Milena."
+    remarks: "Sempre apresentar como assistente do Dr. Igor."
 
   - id: nome_fornecido
     trigger: paciente informa nome
@@ -46,34 +46,6 @@ triage_rules:
     kommo_updates:
       lead_name: atualizar
     remarks: "Tratar como senhor(a) + nome."
-
-  - id: consentimento_negado
-    trigger: negativa explícita ao termo LGPD
-    action: "Encerrar conversa com agradecimento."
-    kommo_updates:
-      status: nao_interessado
-      followup_attempts: 0
-      notes:
-        - "Consentimento negado"
-    remarks: "Bloquear follow-ups automáticos."
-
-  - id: consentimento_aceito
-    trigger: aceite explícito ao termo LGPD
-    action: "Prosseguir com coleta de objetivo e dados clínicos."
-    kommo_updates:
-      notes:
-        - "Consentimento registrado"
-    remarks: "Guardar evidência em log separado."
-
-  - id: emergencia_detectada
-    trigger: termos como "dor no peito", "socorro", "suicídio"
-    action: "Orientar atendimento médico imediato e acionar humano."
-    kommo_updates:
-      status: atendimento_humano
-      tasks:
-        - tipo: urgent
-          descricao: "Emergência reportada"
-    remarks: "Encerrar fluxo automatizado."
 
   - id: objetivo_emagrecimento
     trigger: menção a emagrecer/perder peso/dieta
@@ -121,14 +93,14 @@ triage_rules:
 
   - id: duvida_preco
     trigger: perguntas sobre preço/valor
-    action: "Responder com política (R$700, duração, inclusão de bioimpedância e retorno)."
+    action: "Responder com política (R$700, duração, inclusão de bioimpedância e retorno) e dar enfâse em diferenciais e benefícios."
     kommo_updates:
       custom_fields:
         DETECTED_INTENT: pricing
 
   - id: interesse_expresso
-    trigger: frases como "tenho interesse", "quero consultar"
-    action: "Confirmar interesse e coletar idade/histórico."
+    trigger: frases como "já conheço o Dr. Igor", "já quero agendar", "quero marcar uma consulta"
+    action: "Confirmar interesse e seguir para agendamento e disponibilidade de horário"
     kommo_updates:
       notes:
         - "Lead demonstrou interesse real"
@@ -144,7 +116,7 @@ triage_rules:
 
   - id: sem_disponibilidade
     trigger: MEDX retorna 0 slots
-    action: "Oferecer alternativas (outros dias, lista de espera, teleatendimento)."
+    action: "Oferecer alternativas (outros dias, lista de espera, consulta online)."
     kommo_updates:
       status: opcoes_enviadas
       custom_fields:
@@ -165,30 +137,13 @@ triage_rules:
       status: atendimento_humano
       tags:
         - handoff_humano
-      tasks:
-        - tipo: call
-          descricao: "Confirmar horário no MEDX"
-    remarks: "Informar retorno em até 2 horas úteis."
 
   - id: duvida_medica
     trigger: perguntas sobre diagnóstico ou medicação
-    action: "Direcionar para consulta e escalar humano."
+    action: "Informar que é necessário passar por uma consulta médica primeiro."
     kommo_updates:
-      status: atendimento_humano
       tasks:
-        - tipo: followup
-          descricao: "Responder dúvida clínica"
-
-  - id: desistencia
-    trigger: paciente pede cancelamento ou opt-out
-    action: "Confirmar cancelamento e agradecer."
-    kommo_updates:
-      status: nao_interessado
-      tags_remove:
-        - handoff_humano
-      custom_fields_clear:
-        - PREFERRED_SLOT
-        - LAST_SUGGESTED_SLOTS
+       descricao: "Responder dúvida clínica"
 
 followup_rules:
   cron:
