@@ -1,13 +1,34 @@
 # Checklist de Implementação - Projeto Dr. Igor
 
-- [ ] Atualizar `docs/arquitetura_sistema.md` com novo fluxograma (consulta MEDX) e remover referências a scoring.
-- [ ] Importar pipeline ajustado no Kommo conforme `kommo-config/pipeline_config.json` e criar campos customizados.
-- [ ] Configurar variáveis de ambiente no n8n (`TRIAGEM_STATUS_ID`, `OPCOES_ENVIADAS_STATUS_ID`, etc.).
-- [ ] Atualizar workflow `fluxo_qualificacao.json` para versão 2.0 (consulta MEDX + handoff imediato).
-- [ ] Atualizar workflow `fluxo_followup.json` para versão 2.0 (sem score, foco em confirmação de agenda).
-- [ ] Substituir prompts no n8n pelos novos system prompts de triagem e follow-up.
-- [ ] Publicar documento de RAQ e garantir que o agente tenha acesso às respostas.
-- [ ] Adicionar protocolos de contingência ao repositório interno e comunicar equipe.
-- [ ] Validar integração com MEDX usando casos de teste (slot disponível / indisponível).
-- [ ] Realizar testes ponta a ponta (lead real) e ajustar campos no Kommo conforme necessário.
-- [ ] Registrar métricas iniciais e revisar KPIs com a equipe após primeira semana.
+## FASE 1: PREPARAÇÃO (Dias 1-3)
+- [ ] Criar conta Kommo e configurar domínio
+- [ ] Obter API Keys necessárias
+- [ ] Configurar campos personalizados para qualificação
+- [ ] Definir tags: QUALIFICADO, NUTRIÇÃO, NÃO_QUALIFICADO
+- [ ] Treinar equipe sobre critérios de qualificação
+- [ ] Preparar scripts sobre "não atendemos convênio"
+- [ ] Documentar casos de sucesso online
+
+## FASE 2: CONFIGURAÇÃO BASE (Dias 4-7)
+- [ ] Implementar regras de qualificação no N8N
+- [ ] Configurar workflows sem sistema de score
+- [ ] Criar templates específicos para cada situação
+- [ ] Configurar mensagens para pacientes online
+- [ ] Testar fluxo de qualificação
+- [ ] Validar transferência para humanos
+
+## FASE 3: IMPLEMENTAÇÃO IA (Dias 8-14)
+- [ ] Configurar prompt com regras de qualificação
+- [ ] Incluir informações sobre atendimento particular
+- [ ] Adicionar scripts para atendimento online
+- [ ] Testar diferentes cenários de qualificação
+- [ ] Ajustar baseado em feedback
+- [ ] Documentar casos especiais
+
+## FASE 4: MONITORAMENTO (Ongoing)
+- [ ] Acompanhar taxa de qualificação
+- [ ] Analisar motivos de não qualificação
+- [ ] Otimizar critérios baseado em conversões
+- [ ] Ajustar mensagens sobre convênio/particular
+- [ ] Coletar feedback sobre atendimento online
+- [ ] Revisar mensalmente os critérios

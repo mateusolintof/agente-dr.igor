@@ -11,9 +11,9 @@ Sistema completo de atendimento automatizado para clínica de nutrologia, integr
 ### Estrutura do Projeto
 ```
 Dr.Igor/
-├── prompts/           # Prompts otimizados para cada etapa
-├── workflows/         # Fluxos n8n exportados
-├── kommo-config/      # Configurações do Kommo
+├── prompts/          # Prompts otimizados para cada etapa
+├── workflows/        # Fluxos n8n exportados
+├── kommo-config/     # Configurações do Kommo
 ├── docs/             # Documentação técnica
 ├── tests/            # Testes e cenários
 └── assets/           # Recursos visuais e templates

@@ -1,0 +1,134 @@
+welcome_messages:
+  first_contact: |
+    Boa {periodo}, sou Alice, assistente do Instituto Aguiar Neri. 
+    É um prazer recebê-lo(a). Poderia me informar seu nome completo 
+    para que eu possa atendê-lo(a) de forma personalizada?
+  
+  returning_contact: |
+    Olá novamente, senhor(a) {nome}. Que bom tê-lo(a) de volta. 
+    Como posso ajudá-lo(a) hoje em relação à sua saúde?
+
+qualification_messages:
+  health_goal_inquiry: |
+    Senhor(a) {nome}, para orientá-lo(a) adequadamente, poderia 
+    compartilhar qual sua principal meta de saúde? Emagrecimento, 
+    mais energia, saúde hormonal ou outro objetivo específico?
+  
+  location_inquiry: |
+    Senhor(a) {nome}, para melhor atendê-lo(a), poderia informar 
+    de qual cidade está falando conosco?
+  
+  timeline_inquiry: |
+    Entendo sua preocupação com {problema}. Há quanto tempo 
+    o(a) senhor(a) vem lidando com esta questão?
+  
+  previous_attempts: |
+    O(a) senhor(a) já tentou algum tratamento ou acompanhamento 
+    anterior para resolver {problema}? Seria importante entender 
+    o que já foi tentado.
+
+objection_handlers:
+  insurance_objection: |
+    Senhor(a) {nome}, compreendo sua pergunta sobre convênios. 
+    O Instituto Aguiar Neri trabalha exclusivamente com atendimento 
+    particular. Isso nos permite oferecer um serviço premium, 
+    totalmente personalizado e sem as limitações dos planos de saúde. 
+    O valor de R$ 700,00 inclui consulta completa, exame de 
+    bioimpedância (presencial) e retorno em 30 dias.
+  
+  distance_objection: |
+    Excelente pergunta, senhor(a) {nome}! Oferecemos atendimento 
+    online completo para pacientes de outras cidades. Realizamos 
+    cálculo detalhado de IMC e toda a avaliação necessária. 
+    Temos diversos casos de sucesso com pacientes de todo o Brasil 
+    que fazem acompanhamento exclusivamente online com resultados 
+    extraordinários. A qualidade é a mesma do presencial.
+  
+  price_concern: |
+    Compreendo sua preocupação com o investimento, senhor(a) {nome}. 
+    É importante esclarecer que trabalhamos apenas com atendimento 
+    particular, sem convênios. Os R$ 700,00 incluem três serviços 
+    especializados com um médico nutrólogo pós-graduado. Considerando 
+    que estamos falando da sua saúde, quanto vale resolver 
+    definitivamente {problema}?
+  
+  time_constraint: |
+    Senhor(a) {nome}, entendo perfeitamente a correria do dia a dia. 
+    Por isso oferecemos consultas online para quem é de outra cidade, 
+    eliminando deslocamento. Uma hora investida agora pode significar 
+    anos de saúde e disposição. Podemos encontrar um horário que se 
+    adeque à sua rotina?
+  
+  skepticism: |
+    Sua cautela é compreensível, senhor(a) {nome}. O Dr. Aguiar Neri 
+    tem mais de 10 anos de experiência e já ajudou centenas de 
+    pacientes, incluindo muitos que fazem acompanhamento online. 
+    Trabalhamos com atendimento particular para garantir dedicação 
+    total. Que tal começarmos com uma avaliação?
+
+urgency_creators:
+  limited_availability: |
+    Senhor(a) {nome}, consultando nossa agenda, temos apenas {vagas} 
+    vagas disponíveis para os próximos 15 dias. {modalidade_info}
+    Considerando que o(a) senhor(a) já está lidando com {problema} 
+    há {tempo}, seria interessante não adiar mais. Posso verificar 
+    a melhor data?
+  
+  health_priority: |
+    Senhor(a) {nome}, cada dia que passa com {problema} não resolvido 
+    pode impactar sua saúde de forma cumulativa. Nossos pacientes, 
+    tanto presenciais quanto online, relatam arrependimento por não 
+    terem começado antes. Que tal aproveitarmos este momento?
+
+special_situations:
+  out_of_town_patient: |
+    Senhor(a) {nome}, que ótimo que nos procurou mesmo sendo de 
+    {cidade}! Temos uma excelente estrutura para atendimento online. 
+    Embora a bioimpedância seja exclusiva do presencial, fazemos 
+    uma avaliação completa com cálculo de IMC detalhado. Temos 
+    vários pacientes de {estado} com resultados excepcionais 
+    fazendo acompanhamento 100% online conosco.
+  
+  insurance_insistence: |
+    Senhor(a) {nome}, entendo sua preferência por usar o plano de 
+    saúde. Infelizmente, não temos convênio com nenhuma operadora 
+    pois isso limitaria nosso tempo de atendimento e métodos. 
+    No particular, conseguimos dedicar o tempo necessário para 
+    seu caso e oferecer o melhor tratamento possível.
+
+closing_messages:
+  ready_to_schedule: |
+    Excelente, senhor(a) {nome}! Vejo que está pronto(a) para este 
+    importante passo. {attendance_mode_message} Vou conectá-lo(a) 
+    com nossa equipe de agendamento. Em instantes, {atendente} 
+    confirmará todos os detalhes.
+  
+  payment_explanation: |
+    Senhor(a) {nome}, para garantir sua consulta, solicitamos um 
+    sinal de 30% (R$ 210,00). Trabalhamos exclusivamente com 
+    atendimento particular. Este valor é deduzido do total no dia 
+    da consulta. Pode ser via PIX ou cartão de crédito.
+
+follow_up_sequences:
+  day_1_local: |
+    Boa tarde, senhor(a) {nome}. Ontem conversamos sobre {problema}. 
+    O Dr. Aguiar Neri tem disponibilidade esta semana para 
+    atendimento presencial aqui em Alto Paraíso. Lembrando que 
+    não atendemos convênios. Gostaria de garantir seu horário?
+  
+  day_1_remote: |
+    Boa tarde, senhor(a) {nome}. Ontem conversamos sobre {problema}. 
+    Como o(a) senhor(a) é de {cidade}, podemos fazer seu atendimento 
+    online com a mesma qualidade. Temos vários casos de sucesso de 
+    pacientes online. Gostaria de agendar?
+  
+  day_3: |
+    Senhor(a) {nome}, sei que decisões sobre saúde requerem reflexão. 
+    Temos uma última vaga para sexta-feira. Atendimento particular 
+    com toda dedicação necessária. Posso reservá-la?
+  
+  day_7: |
+    Senhor(a) {nome}, este é nosso último contato. Quando estiver 
+    pronto(a) para cuidar de {problema}, estaremos aqui. Lembramos 
+    que atendemos particular e também online para outras cidades. 
+    Deseja agendar novo contato em 30 dias?

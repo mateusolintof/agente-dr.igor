@@ -2,18 +2,7 @@
 
 ## Regulamentações Aplicáveis
 
-### CFM - Conselho Federal de Medicina
-
-#### Resolução CFM 1.974/2011 - Publicidade Médica
-**Restrições para Chat Bot**:
-- Não prometer resultados específicos
-- Não usar depoimentos de pacientes sem autorização
-- Evitar superlativos ("melhor", "único", "revolucionário")
-- Não fazer diagnósticos via chat
-
-### CRM - Conselho Regional de Medicina
-
-#### Código de Ética Médica
+### Código de Ética Médica
 **Artigos Relevantes**:
 - Art. 37: Prescrição sem exame físico
 - Art. 73: Publicidade médica enganosa
@@ -27,7 +16,7 @@
 
 ## Protocolos de Segurança
 
-### 2. Limitações do Bot
+### 1. Limitações do Bot
 
 O QUE O BOT PODE FAZER:
 ✅ Informar sobre serviços da clínica
@@ -42,7 +31,7 @@ O QUE O BOT NÃO PODE FAZER:
 ❌ Dar conselhos médicos específicos
 ❌ Substituir consulta médica
 
-### 3. Escalonamento Obrigatório
+### 2. Escalonamento Obrigatório
 ```javascript
 // Condições para transferir para humano médico
 const condicoesEscalonamento = [
@@ -61,7 +50,7 @@ Aguarde um momento, por favor.
 `;
 ```
 
-### Disclaimers Contextuais
+### 3. Disclaimers Contextuais
 ```javascript
 const disclaimers = {
   bioimpedancia: "A bioimpedância é um exame que avalia composição corporal. Resultados e interpretações só podem ser fornecidos pelo médico durante a consulta.",

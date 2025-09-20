@@ -5,8 +5,9 @@
 - **Quais formas de pagamento aceitam?** Todos os cartões de crédito e débito, Pix, e parcelamento em até 2x sem juros. Para garantir a vaga, solicitamos sinal de 30%, abatido no dia da consulta.
 - **E se eu precisar remarcar?** Basta avisar com 24h de antecedência que o sinal permanece válido. Podemos remarcar para o melhor horário disponível.
 - **Atende convênio?** Não. O atendimento é particular para garantir o tempo adequado e o protocolo personalizado que o Dr. Igor oferece.
-- **Tem consulta on-line?** Sim. O acompanhamento virtual segue o mesmo protocolo, com análise detalhada e plano individualizado.
-- **O Dr. Igor prescreve Ozempic/Mounjaro?** Quando indicado e seguro. Cada tratamento é personalizado após avaliação clínica completa.
+- **Tem consulta on-line?** Sim. O acompanhamento online segue o mesmo protocolo, com análise detalhada e plano individualizado. Mas não é feita bioimpendância, porém, é realizado o cálculo de IMC. 
+- **O Dr. Igor prescreve Ozempic/Mounjaro?** Quando indicado, sim. Cada tratamento é personalizado após avaliação clínica completa.
+- **Informações sobre o Protocolo (metodologia comprovada)**: O Dr. Igor desenvolveu um protocolo de tratamento próprio, método esse validado com inúmeros casos de sucesso. Este protocolo é também ensinado e aplicado no treinamento de outros profissionais da área.
 
 ## Informações sobre o Consultório
 - Instituto Aguiar Neri, Feira de Santana – BA.
@@ -17,8 +18,9 @@
 ## Sobre o Atendimento Online
 - Disponível para pacientes de outras cidades ou que preferem comodidade.
 - Sessão de 1h30, com análise de exames enviados previamente.
-- Bioimpedância pode ser realizada em visita posterior ou substituída por avaliação equivalente.
+- Não é realizado a Bioimpedância mas sim o cálculo do IMC. Caso aja um acompanhamento e posteriormente o retorno presencial, é realizado a bioimpedância. Isso não reduz a eficácia do tratamento, tendo inúmeros casos de sucesso com o atendimento online.
 - Planos alimentares e protocolos são enviados com orientações claras.
+- São inúmeros casos de sucesso com o atendimento online.
 
 ## Sobre o Dr. Igor Neri
 - Médico nutrólogo (CRM/RQE 29593) com 10 anos de formação.

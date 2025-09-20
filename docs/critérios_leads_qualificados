@@ -1,0 +1,60 @@
+LEAD_QUALIFICADO:
+  
+  Critérios_de_Interesse (pelo menos 1):
+    - problema_de_saude_especifico:
+        exemplos: ["emagrecimento", "cansaço", "metabolismo", "hormônios"]
+        detalhamento: "Descreveu claramente sua necessidade"
+    
+    - urgencia_expressa:
+        indicadores: ["preciso resolver", "urgente", "não aguento mais", "quanto antes"]
+        prazo_mencionado: "< 30 dias"
+    
+    - tentativas_anteriores:
+        mencionou: ["já tentei dietas", "fiz tratamento", "não funcionou", "já fui em outros profissionais"]
+        demonstra: "Consciência do problema e disposição para investir"
+    
+    - perguntas_sobre_metodo:
+        tipos: ["como funciona", "qual diferencial", "resultados esperados"]
+        indica: "Interesse genuíno no tratamento"
+    
+    - disponibilidade_agenda:
+        confirmou: ["tenho disponibilidade", "posso comparecer", "quando tem vaga"]
+        flexibilidade: "Manhã, tarde ou online"
+    
+    - capacidade_financeira:
+        sinais: ["perguntou sobre formas de pagamento", "não objetou preço", "investimento em saúde"]
+        ausência_de: ["muito caro", "não tenho condições", "está fora do meu orçamento"]
+    
+    - busca_prescricao_especifica:
+        exemplo: ["Quero ozempic", "Quero mounjaro"]
+        aceita_interesse_acompanhamento: true
+
+LEAD_NÃO_QUALIFICADO:
+  
+  Desqualificadores_Imediatos:    
+    - fora_do_perfil:
+        exemplos: ["só quero ganhar peso", "busco psiquiatra", "problema não é nutrologico"]
+    
+    - sem_capacidade_pagamento:
+        declarou: ["não posso pagar", "só se aceitar convênio", "muito acima do orçamento"]
+        insiste_desconto: "> 50%"
+    
+    - curiosidade_sem_interesse:
+        indicadores: ["só quero saber", "estou pesquisando", "talvez ano que vem"]
+        sem_problema_real: true
+
+LEAD_EM_NUTRIÇÃO (Requer Acompanhamento):
+  
+  Características:
+    - interesse_demonstrado: true
+    - objecoes_a_trabalhar:
+        tipos: ["preço", "tempo", "distância", "método"]
+        quantidade: "1-2 objeções"
+    
+    - informacoes_incompletas:
+        faltando: ["telefone", "problema específico", "urgência"]
+        mas_engajado: true
+    
+    - precisa_confianca:
+        sinais: ["quero conhecer melhor", "preciso entender", "tenho dúvidas"]
+        potencial: "médio-alto"

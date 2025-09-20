@@ -32,3 +32,9 @@ senha: Metaconvert@50k
 ## GITHUB REPO
 
 https://github.com/mateusolintof/agente-dr.igor.git
+
+## MEDX (agendamento)
+
+link de acesso: https://v65.medx.med.br/
+e-mail: convert.saude@gmail.com
+senha: Trafego22

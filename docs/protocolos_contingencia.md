@@ -12,11 +12,10 @@
 ## 2. Indisponibilidade do OpenAI
 - **Sintoma:** Node OpenAI retorna erro ou tempo limite excedido.
 - **Resposta imediata:**
-  - Fluxo n8n aciona mensagem padrão salvaguarda: "Sistema indisponível no momento; vamos retornar em instantes".
+  - Fluxo n8n aciona escalonamento para ser Humano: "Sistema indisponível no momento; vamos retornar em instantes".
   - Registra erro com timestamp e payload para análise.
 - **Ação da equipe:**
   - Verificar status da API OpenAI e retestar.
-  - Caso demore mais de 30 minutos, equipe humana assume contato manualmente.
 
 ## 3. Webhook Kommo fora do ar
 - **Sintoma:** Leads novos não chegam ao n8n; fila vazia.
@@ -35,7 +34,7 @@
 ## 5. Conteúdo fora do protocolo / Assuntos clínicos
 - **Sintoma:** Paciente pede orientação médica, receita ou relata emergência.
 - **Resposta:**
-  - Agente IA responde: "Para sua segurança, é necessário realizar uma consulta com o Dr. Igor antes de qualquer orientação clínica ou prescrição. Assim, o doutor poderá avaliar sua situação e indicar o melhor protocolo ou medicamento, se for o caso."
+  - Agente IA responde: "É necessário realizar uma consulta com o Dr. Igor antes de qualquer orientação clínica ou prescrição. Assim, o doutor poderá avaliar sua situação e indicar o melhor protocolo ou medicamento, se for o caso."
 
 ## 6. Solicitação de Cancelamento ou Opt-out
 - **Sintoma:** Paciente pede para parar contatos ou cancelar consulta.
