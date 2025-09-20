@@ -1,33 +1,25 @@
 LEAD_QUALIFICADO:
-  
-  Critérios_de_Interesse (pelo menos 1):
-    - problema_de_saude_especifico:
-        exemplos: ["emagrecimento", "cansaço", "metabolismo", "hormônios"]
-        detalhamento: "Descreveu claramente sua necessidade"
-    
-    - urgencia_expressa:
-        indicadores: ["preciso resolver", "urgente", "não aguento mais", "quanto antes"]
-        prazo_mencionado: "< 30 dias"
-    
-    - tentativas_anteriores:
-        mencionou: ["já tentei dietas", "fiz tratamento", "não funcionou", "já fui em outros profissionais"]
-        demonstra: "Consciência do problema e disposição para investir"
-    
-    - perguntas_sobre_metodo:
-        tipos: ["como funciona", "qual diferencial", "resultados esperados"]
-        indica: "Interesse genuíno no tratamento"
-    
-    - disponibilidade_agenda:
-        confirmou: ["tenho disponibilidade", "posso comparecer", "quando tem vaga"]
-        flexibilidade: "Manhã, tarde ou online"
-    
-    - capacidade_financeira:
-        sinais: ["perguntou sobre formas de pagamento", "não objetou preço", "investimento em saúde"]
-        ausência_de: ["muito caro", "não tenho condições", "está fora do meu orçamento"]
-    
-    - busca_prescricao_especifica:
-        exemplo: ["Quero ozempic", "Quero mounjaro"]
-        aceita_interesse_acompanhamento: true
+
+  Critérios_Obrigatórios (AMBOS obrigatórios):
+
+    1. objetivo_claro:
+        exemplos: ["emagrecimento", "definição corporal", "perda de peso", "melhorar metabolismo", "reduzir medidas"]
+        detalhamento: "Expressou claramente o que deseja alcançar"
+        nota: "Pode ter sido mencionado na primeira mensagem ou descoberto na etapa 2"
+
+    2. capacidade_financeira:
+        sinais_positivos: ["perguntou sobre formas de pagamento", "não objetou preço", "investimento em saúde", "quando posso agendar"]
+        sinais_negativos: ["muito caro", "não tenho condições", "está fora do meu orçamento", "só se aceitar convênio"]
+        avaliacao: "Lead não demonstrou objeção financeira forte"
+
+TAGS_PARA_REFINAMENTO (usar como campos personalizados no Kommo):
+
+  Qualificadores_Extras:
+    - urgencia_expressa: ["preciso resolver logo", "urgente", "não aguento mais"]
+    - tentativas_anteriores: ["já tentei dietas", "fiz tratamento antes", "não funcionou"]
+    - perguntas_sobre_metodo: ["como funciona", "qual diferencial", "resultados esperados"]
+    - disponibilidade_agenda: ["tenho disponibilidade", "posso comparecer", "flexível horários"]
+    - busca_medicacao: ["ozempic", "mounjaro", "medicamentos para emagrecimento"]
 
 LEAD_NÃO_QUALIFICADO:
   

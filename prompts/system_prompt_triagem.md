@@ -1,1 +1,0 @@
-# Sugestão de System Prompt – Agente de Triagem

@@ -1,26 +1,24 @@
 # Checklist de Implementação - Projeto Dr. Igor
 
-## FASE 1: PREPARAÇÃO (Dias 1-3)
-- [ ] Criar conta Kommo e configurar domínio
+## FASE 1: PREPARAÇÃO
+- [X] Criar conta Kommo e configurar domínio
 - [ ] Obter API Keys necessárias
-- [ ] Configurar campos personalizados para qualificação
-- [ ] Definir tags: QUALIFICADO, NUTRIÇÃO, NÃO_QUALIFICADO
-- [ ] Treinar equipe sobre critérios de qualificação
-- [ ] Preparar scripts sobre "não atendemos convênio"
-- [ ] Documentar casos de sucesso online
+  -  Falta do MedX
+- [ ] Definir campos personalizados
+- [X] Definir tags: objetivo_claro, capacidade_financeira, urgencia_expressa, tentativas_anteriores, perguntas_metodo, disponibilidade_agenda, busca_medicacao
+- [ ] Definir Lógica dos Pipelines no Kommo
+- [ ] Solicitar Documentar casos de sucesso online (não impacta na criação do Fluxo)
+- [X] Definir Lógica para transferência humano
 
-## FASE 2: CONFIGURAÇÃO BASE (Dias 4-7)
-- [ ] Implementar regras de qualificação no N8N
-- [ ] Configurar workflows sem sistema de score
-- [ ] Criar templates específicos para cada situação
-- [ ] Configurar mensagens para pacientes online
-- [ ] Testar fluxo de qualificação
-- [ ] Validar transferência para humanos
+## FASE 2: CONFIGURAÇÃO BASE e IMPLEMENTAÇÃO IA
+- [ ] Configurar workflows N8N
+- [ ] Configurar Pipelines no Kommo (automações, tags e etc.)
+- [ ] Testar se o Fluxo está funcionando com a transferência entre quadros (kanban) e entre Pipelines
+- [ ] Validar transferência para humanos (se logica está funcionando)
+- [ ] Configurar Dados para Dashboard
 
-## FASE 3: IMPLEMENTAÇÃO IA (Dias 8-14)
-- [ ] Configurar prompt com regras de qualificação
-- [ ] Incluir informações sobre atendimento particular
-- [ ] Adicionar scripts para atendimento online
+## FASE 3: IMPLEMENTAÇÃO IA 
+- [ ] Testar Prompts
 - [ ] Testar diferentes cenários de qualificação
 - [ ] Ajustar baseado em feedback
 - [ ] Documentar casos especiais
